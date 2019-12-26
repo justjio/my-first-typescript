@@ -8,9 +8,10 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
-    "postinstall": "npm run build && npm run start",
+    "postinstall": "npm run build",
+    "start": "npm run serve",
     "dev": "nodemon ./src/server.ts",
-    "start": "node ./dist/server.js"
+    "serve": "node ./dist/server.js"
   },
   "keywords": [],
   "author": "",
