@@ -8,8 +8,8 @@ import * as compression from "compression"
 //Create the App class
 class App {
     public app: express.Application
-    public mongoLocalUrl: string = "mongodb://localhost/contact"
-    public mongoCloudUrl: string = "mongodb+srv://jiobiagbaDB:obidudu9293@cluster0-ywgnl.azure.mongodb.net/typescript?retryWrites=true&w=majority"
+    public localUrl: string = "mongodb://localhost/contact"
+    public cloudUrl: string = process.env.mongoCloudUrl
     public router: Routes = new Routes() //Ensure this has been set up in routes folder
 
     constructor() {
@@ -28,7 +28,7 @@ class App {
 
     private mongoSetup(): void {
         // mongoose.Promise = global.Promise
-        mongoose.connect(this.mongoCloudUrl, {
+        mongoose.connect(this.cloudUrl, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
